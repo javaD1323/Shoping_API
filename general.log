@@ -1,0 +1,7 @@
+2022-08-13 09:17:45,382 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2022-08-13 09:17:45,487 (WARNING) - silk.profiling.profiler - Cannot execute silk_profile as silk is not installed correctly.
+2022-08-13 09:18:03,615 (INFO) - django.utils.autoreload - /home/psingal/w/storefront3/manage.py changed, reloading.
+2022-08-13 09:18:04,418 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2022-08-13 09:18:04,485 (WARNING) - silk.profiling.profiler - Cannot execute silk_profile as silk is not installed correctly.
+2022-08-13 09:19:36,194 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2022-08-13 09:19:36,262 (WARNING) - silk.profiling.profiler - Cannot execute silk_profile as silk is not installed correctly.

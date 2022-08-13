@@ -1,6 +1,3 @@
-from multiprocessing import context
-from pyexpat import model
-from wsgiref import validate
 from store.permissions import FullDjangoModelPermissions, IsAdminOrReadOnly, ViewCustomerHistoryPermission
 from store.pagination import DefaultPagination
 from django.db.models.aggregates import Count
@@ -14,8 +11,9 @@ from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework import status
 from .filters import ProductFilter
-from .models import Cart, CartItem, Collection, Customer, Order, OrderItem, Product, Review , ProductImages
-from .serializers import AddCartItemSerializer, CartItemSerializer, CartSerializer, CollectionSerializer, CreateOrderSerializer, CustomerSerializer, OrderSerializer, ProductImageSeriliaze, ProductSerializer, ReviewSerializer, UpdateCartItemSerializer, UpdateOrderSerializer
+from .models import Cart, CartItem, Collection, Customer, Order, OrderItem, Product, ProductImage, Review
+from .serializers import AddCartItemSerializer, CartItemSerializer, CartSerializer, CollectionSerializer, CreateOrderSerializer, CustomerSerializer, OrderSerializer, ProductImageSerializer, ProductSerializer, ReviewSerializer, UpdateCartItemSerializer, UpdateOrderSerializer
+
 
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.prefetch_related('images').all()
@@ -145,13 +143,11 @@ class OrderViewSet(ModelViewSet):
         return Order.objects.filter(customer_id=customer_id)
 
 
-class ProductImagesViewSet(ModelViewSet):
-    serializer_class = ProductImageSeriliaze
+class ProductImageViewSet(ModelViewSet):
+    serializer_class = ProductImageSerializer
 
     def get_serializer_context(self):
-        return {'product_id' : self.kwargs['product_pk']}
-    
-    def get_queryset(self):
-        return ProductImages.objects.filter(product_id=self.kwargs['product_pk'])
+        return {'product_id': self.kwargs['product_pk']}
 
- 
+    def get_queryset(self):
+        return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
