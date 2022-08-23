@@ -1,1 +1,1 @@
-# Shopping_API_DJANGO
+# Shoping_API_DJANGO
